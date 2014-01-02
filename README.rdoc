@@ -21,6 +21,14 @@ Add :ott_authentication to your model
 
     devise :ott_authentication
 
+Add :ott strategy to devise initializer
+
+    config.warden do |manager|
+      manager.strategies.add(:ott, Devise::Strategies::Ott)
+      manager.default_strategies(:scope => :user).unshift :ott   #Asumes User model as your scope
+    end
+
+
 ## Usage
 
 TODO: Write usage instructions here
