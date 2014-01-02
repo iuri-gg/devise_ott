@@ -10,6 +10,8 @@ require 'devise_ott'
 require 'rails/test_help'
 require 'minitest/rails'
 require 'rails_app/config/environment'
+require 'coveralls'
 
+Coveralls.wear!
 
 Dir[File.join(TEST_ROOT, 'support/*.rb')].each{ |f| require f }

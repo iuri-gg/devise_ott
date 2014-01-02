@@ -1,6 +1,7 @@
 # DeviseOtt
 
 {<img src="https://travis-ci.org/igagnidz/devise_ott.png" />}[https://travis-ci.org/igagnidz/devise_ott]
+{<img src="https://coveralls.io/repos/igagnidz/devise_ott/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/igagnidz/devise_ott]
 {<img src="https://codeclimate.com/github/igagnidz/devise_ott.png" />}[https://codeclimate.com/github/igagnidz/devise_ott]
 {<img src="http://badge.fury.io/rb/devise_ott.png" />}[http://badge.fury.io/rb/devise_ott]
 {<img src="https://gemnasium.com/igagnidz/devise_ott.png" alt="Dependency Status" />}[https://gemnasium.com/igagnidz/devise_ott]
