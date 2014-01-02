@@ -1,0 +1,21 @@
+# DeviseOtt
+
+Adds one time token authentication to devise with sign in count and expiration
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'devise_ott'
+
+And then execute:
+
+    $ bundle install
+
+Add :ott_authentication to your model
+
+    devise :ott_authentication
+
+## Usage
+
+TODO: Write usage instructions here

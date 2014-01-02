@@ -1,0 +1,2 @@
+Rails.application.config.secret_token = 'ea942c54540d502f2c8283e26bdc23829f471bb18224cf340a192c4f32cdf6cb5aa0d82b3a7a7adbeb640c4b06f3aa1cd5f098162d8240f669b39d6b49680571'
+Rails.application.config.session_store :cookie_store, :key => "_ott_app"
