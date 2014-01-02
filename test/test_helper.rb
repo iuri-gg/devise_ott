@@ -6,12 +6,11 @@ TEST_ROOT = File.expand_path('../', __FILE__)
 
 require 'rails/all'
 require 'devise'
-require 'devise_ott'
 require 'rails/test_help'
 require 'minitest/rails'
-require 'rails_app/config/environment'
 require 'coveralls'
-
 Coveralls.wear!
+require 'devise_ott'
+require 'rails_app/config/environment'
 
 Dir[File.join(TEST_ROOT, 'support/*.rb')].each{ |f| require f }
