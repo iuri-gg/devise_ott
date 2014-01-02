@@ -1,5 +1,5 @@
 # DeviseOtt
-[![Build Status](https://travis-ci.org/igagnidz/devise_ott.png)](https://travis-ci.org/igagnidz/devise_ott)
+{<img src="https://travis-ci.org/igagnidz/devise_ott.png" />}[https://travis-ci.org/igagnidz/devise_ott]
 
 Adds one time token authentication to devise with sign in count and expiration
 
