@@ -1,7 +1,6 @@
 require_relative 'models/ott_authentication'
 
-module Devise
+module DeviseOtt
   module Models
-
   end
 end

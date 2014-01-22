@@ -1,6 +1,6 @@
-module Devise
+module DeviseOtt
   module Strategies
-    class Ott < Devise::Strategies::Authenticatable
+    class OttAuthentication < Devise::Strategies::Authenticatable
       def valid?
         super || valid_for_ott_auth?
       end
