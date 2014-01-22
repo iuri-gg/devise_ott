@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devise_ott (0.0.1)
+    devise_ott (0.0.2)
       devise
       redis
 
