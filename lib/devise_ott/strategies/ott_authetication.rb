@@ -8,11 +8,11 @@ module DeviseOtt
       def authenticate!
         ott_token = params[:ott_token]
 
-        return fail! unless mapping.to.respond_to?(:find_for_ott_authentication) # Dont try to authenticate if module is not included
+        return unless mapping.to.respond_to?(:find_for_ott_authentication) # Dont try to authenticate if module is not included
 
         resource = mapping.to.find_for_ott_authentication(ott_token)
 
-        return fail! unless resource
+        return unless resource
 
         if validate(resource){ resource.ott_allowed?(ott_token, resource.email) }
           success!(resource)
