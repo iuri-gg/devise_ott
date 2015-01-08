@@ -7,6 +7,11 @@ RailsApp::Application.configure do
   # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
 
+  # Rails 5 deprecation warning
+  Rails.application.configure do
+    config.active_support.test_order = :sorted
+  end
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
