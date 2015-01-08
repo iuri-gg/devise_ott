@@ -7,6 +7,9 @@ module DeviseOtt
 
       def authenticate!
         ott_token = params[:ott_token]
+
+        return unless valid_for_ott_auth?
+
         resource = mapping.to.find_for_ott_authentication(ott_token)
 
         return unless resource
