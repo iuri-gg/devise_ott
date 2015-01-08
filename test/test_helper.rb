@@ -13,6 +13,4 @@ Coveralls.wear!
 require 'devise_ott'
 require 'rails_app/config/environment'
 
-Rails.eager_load!
-
-Dir[File.join(TEST_ROOT, 'support/*.rb')].each{ |f| require f }
+%w(schema models seed).each{ |f| require File.join(TEST_ROOT, "support/#{f}.rb") }
