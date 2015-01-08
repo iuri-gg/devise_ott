@@ -18,6 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
+  # Dont sing yet.
+  # spec.cert_chain  = ['certs/igagnidz.pem']
+  # spec.signing_key = File.expand_path('~/.ssh/gem-private_key.pem') if $0 =~ /gem\z/
+
   spec.add_dependency 'devise'
   spec.add_dependency 'redis'
 
