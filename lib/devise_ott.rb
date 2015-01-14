@@ -1,4 +1,5 @@
 require 'devise'
+require 'warden'
 require_relative 'devise_ott/version'
 require_relative 'devise_ott/tokens'
 require_relative 'devise_ott/models'
@@ -16,3 +17,8 @@ end
 
 Warden::Strategies.add(:ott_authentication, DeviseOtt::Strategies::OttAuthentication)
 Devise.add_module :ott_authentication, :strategy => true, :model => 'devise_ott/models/ott_authentication'
+Warden::Manager.after_authentication do |user,auth,opts|
+	if auth.winning_strategy.is_a?(DeviseOtt::Strategies::OttAuthentication)
+		auth.session[:ott_authenticated] = true
+	end
+end
