@@ -17,7 +17,7 @@ class DeviseOttTest < ActiveSupport::TestCase
 
   test 'redis revokes' do
     assert_equal(1, DeviseOtt::Tokens.instance.revoke('random_token'))
-    DeviseOtt::Tokens.instance.register('random_token', 'test1@example.com', 1040, 100100)
+    DeviseOtt::Tokens.instance.register('random_token', 'test1@example.com', 'requester@example.com', 1040, 100100)
   end
 
   test 'accesses token for a given email if allowed' do
@@ -31,6 +31,11 @@ class DeviseOttTest < ActiveSupport::TestCase
   test 'returns correct email if allowed' do
     DeviseOtt::Tokens.instance.access('random_token', 'test1@example.com')
     assert_equal('test1@example.com', DeviseOtt::Tokens.instance.email('random_token'))
+  end
+
+  test 'returns correct requester email if allowed' do
+    DeviseOtt::Tokens.instance.access('random_token', 'test1@example.com')
+    assert_equal('requester@example.com', DeviseOtt::Tokens.instance.granted_to_email('random_token'))
   end
 
   test 'denies email access unless allowed' do

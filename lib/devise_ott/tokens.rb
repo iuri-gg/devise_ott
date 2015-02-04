@@ -15,8 +15,8 @@ module DeviseOtt
 
     # register one time token for given user in redis
     # the generated token will have a field "email" in order to identify the associated user later
-    def register(token, email, access_count, expire)
-      save_config(token, {email: email, access_count: access_count})
+    def register(token, email, granted_to_email, access_count, expire)
+      save_config(token, {email: email, granted_to_email: granted_to_email, access_count: access_count})
       @redis.expire(token, expire)
 
       token
@@ -44,6 +44,12 @@ module DeviseOtt
     def email(token)
       config = load_config(token)
       config && config[:email]
+    end
+
+    # returns config hash for a given token
+    def granted_to_email(token)
+			config = load_config(token)
+			config && config[:granted_to_email]
     end
 
     private

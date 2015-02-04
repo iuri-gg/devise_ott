@@ -25,7 +25,7 @@ Add :ott_authentication to your model
 ## Usage
 
 Programatically register token for a given user:
-    DeviseOtt::Tokens.instance.register('random_token', 'user@email.com', COUNT, EXPIRES_SECONDS)   # COUNT and EXPIRES_SECONDS are integers
+    DeviseOtt::Tokens.instance.register('random_token', 'user@email.com', 'requester@email.com', COUNT, EXPIRES_SECONDS)   # COUNT and EXPIRES_SECONDS are integers
 
 Login using One-Time Token:
     include ott_token following parameter in the URL. Example: localhost:3000/?ott_token=random_token

@@ -1,6 +1,8 @@
 module DeviseOtt
   module Strategies
     class OttAuthentication < Devise::Strategies::Authenticatable
+			attr_reader :granted_to_email
+
       def valid?
         super || valid_for_ott_auth?
       end
@@ -10,7 +12,8 @@ module DeviseOtt
 
         return unless valid_for_ott_auth?
 
-        resource = mapping.to.find_for_ott_authentication(ott_token)
+				@granted_to_email = DeviseOtt::Tokens.instance.granted_to_email(ott_token)
+				resource = mapping.to.find_for_ott_authentication(ott_token)
 
         return unless resource
 

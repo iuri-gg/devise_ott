@@ -17,8 +17,9 @@ end
 
 Warden::Strategies.add(:ott_authentication, DeviseOtt::Strategies::OttAuthentication)
 Devise.add_module :ott_authentication, :strategy => true, :model => 'devise_ott/models/ott_authentication'
-Warden::Manager.after_authentication do |user,auth,opts|
-	if auth.winning_strategy.is_a?(DeviseOtt::Strategies::OttAuthentication)
-		auth.session[:ott_authenticated] = true
+Warden::Manager.after_authentication do |user,warden,opts|
+	if warden.winning_strategy.is_a?(DeviseOtt::Strategies::OttAuthentication)
+		warden.session[:ott_authenticated] = true
+		warden.session[:ott_granted_to_email] = warden.winning_strategy.granted_to_email
 	end
 end
