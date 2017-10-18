@@ -55,12 +55,12 @@ module DeviseOtt
     private
     def save_config(token, hash)
       time_left = ttl(token)
-      @redis.set("token", Marshal.dump(hash))
+      @redis.set(token, Marshal.dump(hash))
       @redis.expire(token, time_left) if time_left > 0
     end
 
     def load_config(token)
-      if token_data = @redis.get("token")
+      if token_data = @redis.get(token)
         Marshal.load(token_data)
       end
     end
